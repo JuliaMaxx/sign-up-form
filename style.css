@@ -1,7 +1,7 @@
 /* DECLARATIONS */
 @font-face {
   font-family: "BradleyHandITC";
-  src: url(./media/bradhitc.ttf); 
+  src: url(./media/BRADHITC.ttf); 
 }
 
 /*GENERAL*/
@@ -9,12 +9,12 @@ html, body{
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 25px 50px;
+  padding: 23px 50px;
   margin: 0px;
 }
 body {
   background-color: rgb(22, 21, 22);
-  background-image: url(./media/form_temlate_2.svg);
+  background-image: url(./media/form_temlate_3.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -30,6 +30,7 @@ body {
 /* TEXT */
 h1 {
   font-family: "BradleyHandITC";
+  font-weight: 100;
   color: rgb(244, 241, 244);
   font-size: 5rem;
   position: relative;
