@@ -43,4 +43,13 @@ h1::before {
   top: 0.3rem;
   left: 0.5rem;
   z-index: -1;
-} 
+}
+
+/* INPUTS */
+form{
+  display: flex;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
