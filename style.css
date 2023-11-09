@@ -33,7 +33,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  gap: 40px
+  align-items: center;
 }
 
 /* TEXT */
@@ -47,7 +47,7 @@ h1 {
   z-index: 1;
   text-shadow: 0.1em 0.05em var(--white);
   text-align: center;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 /* INPUTS */
@@ -55,7 +55,8 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16rem
+  gap: 16rem;
+  margin-bottom: 40px;
 }
 .input-group {
   display: flex;
@@ -71,4 +72,14 @@ input:not([type="button"]) {
 }
 input::placeholder {
   color: var(--white);
+}
+
+/* BUTTON */
+button[type="submit"] {
+  background-color: #8e618560;
+  padding: 1em 7em;
+  border: none;
+  border-radius: 10px;
+  color: var(--white);
+  box-shadow: 1px 2px 6px rgba(43, 35, 43, 0.317);
 }
