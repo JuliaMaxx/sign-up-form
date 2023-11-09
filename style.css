@@ -3,6 +3,9 @@
   font-family: "BradleyHandITC";
   src: url(./media/BRADHITC.ttf); 
 }
+:root {
+  --white: rgb(244, 241, 244);
+}
 
 /*GENERAL*/
 html, body{
@@ -27,18 +30,24 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px
+}
 
 /* TEXT */
 h1 {
   font-family: "BradleyHandITC";
   font-weight: 100;
-  color: rgb(244, 241, 244);
+  color: var(--white);
   font-size: 5rem;
   position: relative;
   white-space: nowrap;
   z-index: 1;
-  text-shadow: 0.1em 0.05em #ffffff;
+  text-shadow: 0.1em 0.05em var(--white);
   text-align: center;
+  margin-bottom: 0px;
 }
 
 /* INPUTS */
@@ -51,5 +60,15 @@ form{
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
+}
+input:not([type="button"]) {
+  background: transparent;
+  padding: 0.5em;
+  border: none;
+  border-bottom: 2px solid var(--white);
+  font-size: 1rem;
+}
+input::placeholder {
+  color: var(--white);
 }
