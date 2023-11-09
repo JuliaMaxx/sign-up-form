@@ -22,9 +22,10 @@ body {
 }
 .wrapper {
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: flex-start;
 }
 
 /* TEXT */
@@ -36,20 +37,19 @@ h1 {
   position: relative;
   white-space: nowrap;
   z-index: 1;
-}
-h1::before {
-  content: 'SIGN UP';
-  position: absolute;
-  top: 0.3rem;
-  left: 0.5rem;
-  z-index: -1;
+  text-shadow: 0.1em 0.05em #ffffff;
+  text-align: center;
 }
 
 /* INPUTS */
 form{
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rem
 }
 .input-group {
   display: flex;
   flex-direction: column;
+  gap: 4rem;
 }
