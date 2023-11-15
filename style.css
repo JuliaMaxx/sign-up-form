@@ -22,14 +22,9 @@ body {
   background-size: contain;
   background-attachment: fixed;
 }
-@media(max-width: 850px){
-  body{
-    background-size: cover;
-  }
-}
 .wrapper {
   height: 100%;
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +32,7 @@ body {
 main {
   background-color: rgba(255, 182, 193, 0.14);
   display: flex;
+  gap: 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -44,7 +40,8 @@ main {
   -30px -30px 0px rgba(255, 182, 193, 0.2),
   -40px -40px 10px rgba(0, 0, 0, 0.305);
   border-radius: 20px;;
-  padding: 3rem 4rem;
+  padding: 2.5rem 4rem;
+  margin-top: 30px;
 }
 
 /* TEXT */
@@ -52,7 +49,7 @@ h1 {
   font-family: "BradleyHandITC";
   font-weight: 100;
   color: var(--white);
-  font-size: 5rem;
+  font-size: 5.3rem;
   position: relative;
   white-space: nowrap;
   z-index: 1;
@@ -81,7 +78,7 @@ input:not([type="button"]) {
   padding: 0.5em;
   border: none;
   border-bottom: 2px solid var(--white);
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 button, input::placeholder {
   color: var(--white);
@@ -93,9 +90,30 @@ button, input::placeholder {
 /* BUTTON */
 button[type="submit"] {
   background-color: #8e618560;
-  padding: 1em 7em;
+  padding: 1em 4em;
   border: none;
   border-radius: 10px;
   font-size: 1.3rem;
   box-shadow: 1px 2px 6px rgba(43, 35, 43, 0.317);
+  white-space: nowrap;
+}
+
+
+/* MEDIA QERIES*/
+@media(max-width: 900px){
+  body{
+    background-size: cover;
+    padding: 20px;
+  }
+  form {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .input-group{
+    gap: 2rem;
+  }
+  main{
+    padding: 2rem;
+    margin-left: 30px;
+  }
 }
