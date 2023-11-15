@@ -78,7 +78,7 @@ input:not([type="button"]) {
   padding: 0.5em;
   border: none;
   border-bottom: 2px solid var(--white);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 button, input::placeholder {
   color: var(--white);
