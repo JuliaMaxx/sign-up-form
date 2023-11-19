@@ -78,9 +78,9 @@ input:not([type="button"]) {
   padding: 0.5em;
   border: none;
   border-bottom: 2px solid var(--white);
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
-button, input::placeholder {
+button, input::placeholder, .info {
   color: var(--white);
   font-family: "source-code-variable", sans-serif;
   font-variation-settings: "wght" 400;
@@ -98,6 +98,10 @@ button[type="submit"] {
   white-space: nowrap;
 }
 
+/* LINK */
+a {
+  color: rgb(251, 196, 255);
+}
 
 /* MEDIA QERIES*/
 @media(max-width: 900px){
@@ -111,6 +115,9 @@ button[type="submit"] {
   }
   .input-group{
     gap: 2rem;
+  }
+  input:not([type="button"]){
+    font-size: 1rem;
   }
   main{
     padding: 2rem;
