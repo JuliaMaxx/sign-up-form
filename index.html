@@ -11,31 +11,31 @@
   <div class="wrapper">
     <main>
       <h1>SIGN UP</h1>
-      <form action="" method="post">
+      <form id="sign-up" action="" method="post">
         <div class="input-group">
           <div>
-            <input placeholder="First name" type="text" name="first-name" id="first-name">
+            <input required placeholder="First name" type="text" name="first-name" id="first-name">
           </div>
           <div>
-            <input placeholder="Last name" type="text" name="last-name" id="last-name">
+            <input required placeholder="Last name" type="text" name="last-name" id="last-name">
           </div>
           <div>
-            <input placeholder="Email" type="email" name="email" id="email">
+            <input required placeholder="Email" type="email" name="email" id="email">
           </div>
         </div>
         <div class="input-group">
           <div>
-            <input placeholder="Phone number" type="tel" name="phone" id="phone">
+            <input required placeholder="Phone number (+99...)" type="tel" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" name="phone" id="phone">
           </div>
           <div>
-            <input placeholder="Password" type="password" name="password" id="password">
+            <input required placeholder="Password" type="password" name="password" id="password">
           </div>
           <div>
-            <input placeholder="Password confirmation" type="password" name="psw-confirmation" id="psw-confirmation">
+            <input required placeholder="Password confirmation" type="password" name="psw-confirmation" id="psw-confirmation">
           </div>
         </div>
       </form>
-      <button type="submit">Create account</button>
+      <button form="sign-up" type="submit">Create account</button>
       <div class="info">Already have an account? <a href="#">Log in</a></div>
     </main>
   </div>
