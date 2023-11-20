@@ -5,6 +5,7 @@
 }
 :root {
   --white: rgb(244, 241, 244);
+  font-size: 14px;
 }
 
 /*GENERAL*/
@@ -21,9 +22,11 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
 .wrapper {
-  height: 100%;
   width: auto;
   display: flex;
   justify-content: center;
@@ -133,6 +136,9 @@ a {
 
 /* MEDIA QERIES*/
 @media(max-width: 900px){
+  :root {
+    font-size: 12px;
+  }
   body{
     background-size: cover;
     padding: 20px;
