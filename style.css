@@ -106,6 +106,9 @@ input {
   transition: all 0.2s;
   outline: none;
 }
+#psw-confirmation:focus {
+  border: none;
+}
 label {
   display: none;
   position: absolute;
