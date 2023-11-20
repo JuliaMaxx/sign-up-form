@@ -81,19 +81,19 @@ div.input{
 }
 input:not([type="button"]) {
   background: transparent;
-  padding: 0.4em;
-  padding-top: 0.6em;
+  padding: 0.6em 0.4em 0.2em 0.4em;
   border: none;
   border-bottom: 2px solid var(--white);
   font-size: 1.1rem;
 }
-button, input::placeholder, .info, label {
+button, input::placeholder, .info, label, input {
   color: var(--white);
   font-family: "source-code-variable", sans-serif;
   font-variation-settings: "wght" 400;
   line-height: 6px;
 }
 input:focus{
+  padding-top: 16px;
   border-radius: 8px;
 }
 input:invalid:focus{
@@ -113,10 +113,10 @@ label {
   display: none;
   position: absolute;
   padding: 4px 7px;
-  top: -11px;
-  color: rgb(0, 0, 0);
-  left: 10px;
-  background-color: var(--white);
+  top: 2px;
+  color: rgb(255, 255, 255);
+  left: 1px;
+  font-size: 0.8rem;
   border-radius: 10px;
   line-height: 12px;
 }
