@@ -71,26 +71,48 @@ form{
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.8rem;
+}
+div.input{
+  position: relative;
 }
 input:not([type="button"]) {
   background: transparent;
-  padding: 0.5em;
+  padding: 0.4em;
+  padding-top: 0.6em;
   border: none;
   border-bottom: 2px solid var(--white);
   font-size: 1.1rem;
 }
-button, input::placeholder, .info {
+button, input::placeholder, .info, label {
   color: var(--white);
   font-family: "source-code-variable", sans-serif;
   font-variation-settings: "wght" 400;
-  line-height: 5px;
+  line-height: 6px;
 }
 input:focus{
-  border: none;
+  border-radius: 8px;
+}
+input:invalid:focus{
+  border: 2px solid red;
+}
+input:valid:focus {
+  border: 2px solid green;
+}
+input {
+  transition: all 0.2s;
+  outline: none;
 }
 label {
   display: none;
+  position: absolute;
+  padding: 4px 7px;
+  top: -11px;
+  color: rgb(0, 0, 0);
+  left: 10px;
+  background-color: var(--white);
+  border-radius: 10px;
+  line-height: 12px;
 }
 
 /* BUTTON */
