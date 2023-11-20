@@ -96,6 +96,9 @@ input:focus{
   padding-top: 16px;
   border-radius: 8px;
 }
+input:focus::placeholder{
+  color: transparent;
+}
 input:invalid:focus{
   border: 2px solid red;
 }
@@ -120,6 +123,7 @@ label {
   border-radius: 10px;
   line-height: 12px;
 }
+
 
 /* BUTTON */
 button[type="submit"] {
