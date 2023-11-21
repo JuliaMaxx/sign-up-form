@@ -1,3 +1,15 @@
+const telInput = document.querySelector('input[type="tel"]');
+const password = document.querySelector("#password");
+telInput.addEventListener('invalid', function() {
+    if (telInput.validity.patternMismatch) {
+      telInput.setCustomValidity('Format: +999999999999');
+    }
+  });
+
+  telInput.addEventListener('input', function() {
+    telInput.setCustomValidity('');
+  });
+
 // lable 
 const inputs = document.querySelectorAll('input:not([type="button"])' );
 const weakStrengthIndicator = document.querySelector('.weak');
@@ -6,11 +18,15 @@ const highStrengthIndicator = document.querySelector('.strong');
 
 function addLable(event) {
     event.target.nextSibling.nextSibling.style.display = "block";
-    event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "flex";
+    if(event.target === password){
+        event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "flex";
+    }
 }
 function removeLable(event) {
     event.target.nextSibling.nextSibling.style.display = "none";
-    event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "none";
+    if(event.target === password){
+        event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "none";
+    }
 }
 
 function showHint(event) {
@@ -55,6 +71,7 @@ inputs.forEach(input => {
                 showHint(event)
             }
         }, 4000);
+        changeIndicators(event);
     });
     input.addEventListener('blur',(event) => {
         removeLable(event);
@@ -79,7 +96,6 @@ pswConfirmation.addEventListener('blur', () => {
 })
 
 function checkPassword(event) {
-    const password = document.querySelector("#password");
     if (event.target.value == password.value && password.checkValidity()){
         valid = true;
         changeBorderColor();
@@ -87,6 +103,7 @@ function checkPassword(event) {
     }
     else {
         valid = false;
+        event.target.setCustomValidity('Two passwords must match')
         changeBorderColor();
         console.log('invalid');
     }
