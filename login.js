@@ -17,7 +17,10 @@ inputs.forEach(input => {
 // password confirmation
 const pswConfirmation = document.querySelector("#psw-confirmation");
 const password = document.querySelector("#password");
-
+document.getElementById('log-in').addEventListener('submit', function(event) {
+    event.preventDefault();
+    window.location.href = './message.html';
+});
 let valid = false;
 
 function changeBorderColor () {
@@ -34,13 +37,12 @@ function checkPassword(event) {
     if (event.target.value == password.value && password.checkValidity()){
         valid = true;
         changeBorderColor();
-        console.log('valid');
+        event.target.setCustomValidity('');
     }
     else {
         valid = false;
         event.target.setCustomValidity('Two passwords must match')
         changeBorderColor();
-        console.log('invalid');
     }
 }
 pswConfirmation.addEventListener("input", checkPassword);

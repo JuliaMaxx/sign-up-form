@@ -1,5 +1,9 @@
 const telInput = document.querySelector('input[type="tel"]');
 const password = document.querySelector("#password");
+document.getElementById('sign-up').addEventListener('submit', function(event) {
+    event.preventDefault();
+    window.location.href = './message.html';
+});
 telInput.addEventListener('invalid', function() {
     if (telInput.validity.patternMismatch) {
       telInput.setCustomValidity('Format: +999999999999');
@@ -99,13 +103,12 @@ function checkPassword(event) {
     if (event.target.value == password.value && password.checkValidity()){
         valid = true;
         changeBorderColor();
-        console.log('valid');
+        event.target.setCustomValidity('');
     }
     else {
         valid = false;
         event.target.setCustomValidity('Two passwords must match')
         changeBorderColor();
-        console.log('invalid');
     }
 }
 pswConfirmation.addEventListener("input", checkPassword);
