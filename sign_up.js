@@ -44,7 +44,7 @@ function removeHint(event) {
 
 function changeIndicators(event) {
     const midPswRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    const strongPswRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+    const strongPswRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
     if (event.target.checkValidity()){
         weakStrengthIndicator.style.backgroundColor = 'red';
         if (strongPswRegex.test(event.target.value)){
