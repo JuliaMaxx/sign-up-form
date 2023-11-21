@@ -1,7 +1,5 @@
+// lable 
 const inputs = document.querySelectorAll('input:not([type="button"])' );
-const pswConfirmation = document.querySelector("#psw-confirmation");
-let valid = false;
-
 
 function addLable(event) {
     event.target.nextSibling.nextSibling.style.display = "block";
@@ -9,11 +7,35 @@ function addLable(event) {
 function removeLable(event) {
     event.target.nextSibling.nextSibling.style.display = "none";
 }
+
+function showHint(event) {
+    const lable = event.target.nextSibling.nextSibling;
+    lable.innerText += " "+lable.dataset.help;
+}
+function removeHint(event) {
+    const lable = event.target.nextSibling.nextSibling;
+    lable.innerText = lable.innerText.replace(lable.dataset.help, "");
+}
+
 inputs.forEach(input => {
-    input.addEventListener('focus', addLable);
-    input.addEventListener('blur', removeLable);
+    input.addEventListener('focus', (event) => {
+        addLable(event);
+        timer = setTimeout(() => {
+            if (!event.target.checkValidity()){
+                showHint(event)
+            }
+        }, 4000);
+    });
+    input.addEventListener('blur',(event) => {
+        removeLable(event);
+        removeHint(event);
+        clearTimeout(timer);
+    });
 })
 
+// password confirmation
+const pswConfirmation = document.querySelector("#psw-confirmation");
+let valid = false;
 
 function changeBorderColor () {
     pswConfirmation.style.border = valid? "2px solid green": "2px solid red";
