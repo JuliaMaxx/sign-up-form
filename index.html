@@ -36,7 +36,12 @@
           </div>
           <div class="input">
             <input size="22" minlength="8" required placeholder="Password *" type="password" autocomplete="new-password" name="password" id="password">
-            <label for="password" data-help="(at least 8 digits)">Password</label>
+            <label for="password" data-help="(at least 8 digits)"> Password</label>
+            <div class="indicators">
+              <div class="psw-indicator weak"></div>
+              <div class="psw-indicator medium"></div>
+              <div class="psw-indicator strong"></div>
+            </div>
           </div>
           <div class="input">
             <input size="22" minlength="8" required placeholder="Password confirmation *" type="password" autocomplete="current-password" name="psw-confirmation" id="psw-confirmation">

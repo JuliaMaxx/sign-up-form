@@ -3,9 +3,12 @@ const inputs = document.querySelectorAll('input:not([type="button"])' );
 
 function addLable(event) {
     event.target.nextSibling.nextSibling.style.display = "block";
+    event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "flex";
 }
 function removeLable(event) {
     event.target.nextSibling.nextSibling.style.display = "none";
+    event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "none";
+
 }
 
 function showHint(event) {
