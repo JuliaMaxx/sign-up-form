@@ -1,5 +1,8 @@
 // lable 
 const inputs = document.querySelectorAll('input:not([type="button"])' );
+const weakStrengthIndicator = document.querySelector('.weak');
+const midStrengthIndicator = document.querySelector('.medium');
+const highStrengthIndicator = document.querySelector('.strong');
 
 function addLable(event) {
     event.target.nextSibling.nextSibling.style.display = "block";
@@ -8,7 +11,6 @@ function addLable(event) {
 function removeLable(event) {
     event.target.nextSibling.nextSibling.style.display = "none";
     event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "none";
-
 }
 
 function showHint(event) {
@@ -18,6 +20,31 @@ function showHint(event) {
 function removeHint(event) {
     const lable = event.target.nextSibling.nextSibling;
     lable.innerText = lable.innerText.replace(lable.dataset.help, "");
+}
+
+function changeIndicators(event) {
+    const midPswRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const strongPswRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+    if (event.target.checkValidity()){
+        weakStrengthIndicator.style.backgroundColor = 'red';
+        if (strongPswRegex.test(event.target.value)){
+            highStrengthIndicator.style.backgroundColor = 'green';
+            midStrengthIndicator.style.backgroundColor = 'yellow';
+        }
+        else if (midPswRegex.test(event.target.value)){
+            highStrengthIndicator.style.backgroundColor = 'rgba(255, 255, 255, 0.483)';
+            midStrengthIndicator.style.backgroundColor = 'yellow';
+        }
+        else {
+            midStrengthIndicator.style.backgroundColor = 'rgba(255, 255, 255, 0.483)';
+            highStrengthIndicator.style.backgroundColor = 'rgba(255, 255, 255, 0.483)';
+        }
+    }
+    else{
+        midStrengthIndicator.style.backgroundColor = 'rgba(255, 255, 255, 0.483)';
+        weakStrengthIndicator.style.backgroundColor = 'rgba(255, 255, 255, 0.483)';
+        highStrengthIndicator.style.backgroundColor = 'rgba(255, 255, 255, 0.483)';
+    }
 }
 
 inputs.forEach(input => {
@@ -34,6 +61,7 @@ inputs.forEach(input => {
         removeHint(event);
         clearTimeout(timer);
     });
+    input.addEventListener('input', changeIndicators);
 })
 
 // password confirmation

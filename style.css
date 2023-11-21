@@ -149,9 +149,6 @@ label {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.483);
 }
-.psw-indicator.weak {
-  background-color: red;
-}
 
 
 /* BUTTON */
