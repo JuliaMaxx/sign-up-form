@@ -1,25 +1,30 @@
 const telInput = document.querySelector('input[type="tel"]');
 const password = document.querySelector("#password");
+const inputs = document.querySelectorAll('input:not([type="button"])' );
+const weakStrengthIndicator = document.querySelector('.weak');
+const midStrengthIndicator = document.querySelector('.medium');
+const highStrengthIndicator = document.querySelector('.strong');
+const pswConfirmation = document.querySelector("#psw-confirmation");
+
+// redirect to 'thank you' message on submit
 document.getElementById('sign-up').addEventListener('submit', function(event) {
     event.preventDefault();
     window.location.href = './message.html';
 });
+
+
+// show user right format on sumbmiting invalid phone number input
 telInput.addEventListener('invalid', function() {
     if (telInput.validity.patternMismatch) {
       telInput.setCustomValidity('Format: +999999999999');
     }
   });
 
-  telInput.addEventListener('input', function() {
-    telInput.setCustomValidity('');
-  });
+telInput.addEventListener('input', function() {
+telInput.setCustomValidity('');
+});
 
 // lable 
-const inputs = document.querySelectorAll('input:not([type="button"])' );
-const weakStrengthIndicator = document.querySelector('.weak');
-const midStrengthIndicator = document.querySelector('.medium');
-const highStrengthIndicator = document.querySelector('.strong');
-
 function addLable(event) {
     event.target.nextSibling.nextSibling.style.display = "block";
     if(event.target === password){
@@ -33,6 +38,7 @@ function removeLable(event) {
     }
 }
 
+// hint
 function showHint(event) {
     const lable = event.target.nextSibling.nextSibling;
     lable.innerText += " "+lable.dataset.help;
@@ -42,6 +48,7 @@ function removeHint(event) {
     lable.innerText = lable.innerText.replace(lable.dataset.help, "");
 }
 
+// password indicators
 function changeIndicators(event) {
     const midPswRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const strongPswRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
@@ -67,6 +74,7 @@ function changeIndicators(event) {
     }
 }
 
+// add lables, hints and indicators to inputs
 inputs.forEach(input => {
     input.addEventListener('focus', (event) => {
         addLable(event);
@@ -86,7 +94,6 @@ inputs.forEach(input => {
 })
 
 // password confirmation
-const pswConfirmation = document.querySelector("#psw-confirmation");
 let valid = false;
 
 function changeBorderColor () {
@@ -111,5 +118,6 @@ function checkPassword(event) {
         changeBorderColor();
     }
 }
+
 pswConfirmation.addEventListener("input", checkPassword);
 
