@@ -1,17 +1,21 @@
 const telInput = document.querySelector('input[type="tel"]');
-const password = document.querySelector("#password");
+const pswConfirmation = document.querySelector("#psw-confirmation");
 const inputs = document.querySelectorAll('input:not([type="button"])' );
 const weakStrengthIndicator = document.querySelector('.weak');
 const midStrengthIndicator = document.querySelector('.medium');
 const highStrengthIndicator = document.querySelector('.strong');
-const pswConfirmation = document.querySelector("#psw-confirmation");
+
+import { addLable } from "./shared.mjs";
+import { removeLable } from "./shared.mjs";
+import { changeBorderColor } from "./shared.mjs";
+import { checkPassword } from "./shared.mjs";
+
 
 // redirect to 'thank you' message on submit
 document.getElementById('sign-up').addEventListener('submit', function(event) {
     event.preventDefault();
     window.location.href = './message.html';
 });
-
 
 // show user right format on sumbmiting invalid phone number input
 telInput.addEventListener('invalid', function() {
@@ -23,20 +27,6 @@ telInput.addEventListener('invalid', function() {
 telInput.addEventListener('input', function() {
 telInput.setCustomValidity('');
 });
-
-// lable 
-function addLable(event) {
-    event.target.nextSibling.nextSibling.style.display = "block";
-    if(event.target === password){
-        event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "flex";
-    }
-}
-function removeLable(event) {
-    event.target.nextSibling.nextSibling.style.display = "none";
-    if(event.target === password){
-        event.target.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "none";
-    }
-}
 
 // hint
 function showHint(event) {
@@ -75,6 +65,7 @@ function changeIndicators(event) {
 }
 
 // add lables, hints and indicators to inputs
+let timer;
 inputs.forEach(input => {
     input.addEventListener('focus', (event) => {
         addLable(event);
@@ -94,30 +85,11 @@ inputs.forEach(input => {
 })
 
 // password confirmation
-let valid = false;
-
-function changeBorderColor () {
-    pswConfirmation.style.border = valid? "2px solid green": "2px solid red";
-}
-
 pswConfirmation.addEventListener('focus', changeBorderColor);
 pswConfirmation.addEventListener('blur', () => {
     pswConfirmation.style.border = "none";
     pswConfirmation.style.borderBottom = "2px solid var(--white)";
 })
-
-function checkPassword(event) {
-    if (event.target.value == password.value && password.checkValidity()){
-        valid = true;
-        changeBorderColor();
-        event.target.setCustomValidity('');
-    }
-    else {
-        valid = false;
-        event.target.setCustomValidity('Two passwords must match')
-        changeBorderColor();
-    }
-}
-
 pswConfirmation.addEventListener("input", checkPassword);
+
 
